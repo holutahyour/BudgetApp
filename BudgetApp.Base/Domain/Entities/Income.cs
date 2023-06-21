@@ -19,5 +19,8 @@ namespace BudgetApp.Base.Domain.Entities
 
         [Required]
         public int BudgetId { get; set; }
+
+        public virtual Budget Budget { get; set; }
+
     }
 }

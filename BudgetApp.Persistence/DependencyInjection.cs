@@ -9,6 +9,10 @@ namespace BudgetApp.Persistence
         public static IServiceCollection AddPersistence(this IServiceCollection services)
         {
             services.AddScoped(typeof(IUserRepository), typeof(UserRepository));
+            services.AddScoped(typeof(IBudgetRepository), typeof(BudgetRepository));
+            services.AddScoped(typeof(IExpenseRepository), typeof(ExpenseRepository));
+            services.AddScoped(typeof(IIncomeRepository), typeof(IncomeRepository));
+            services.AddScoped(typeof(ISavingRepository), typeof(SavingRepository));
 
             return services;
         }
