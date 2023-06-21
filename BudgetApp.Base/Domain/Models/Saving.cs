@@ -1,9 +1,8 @@
-﻿
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 
-namespace BudgetApp.Base.Domain.Model
+namespace BudgetApp.Base.Domain.Models
 {
-    public class IncomeModel
+    public class SavingModel
     {
         [Key]
         public int Id { get; set; }

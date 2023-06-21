@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace BudgetApp.Base.Domain.Model
+namespace BudgetApp.Base.Domain.Models
 {
     public class ExpenseModel
     {

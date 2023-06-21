@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
 using BudgetApp.Base.Domain.DTO;
 using BudgetApp.Base.Domain.Entities;
-using BudgetApp.Base.Domain.Model;
+using BudgetApp.Base.Domain.Models;
 
 namespace BudgetApp.Base
 {

@@ -2,7 +2,7 @@
 using MediatR;
 using BudgetApp.Base.Domain.DTO;
 using BudgetApp.Base.Domain.Entities;
-using BudgetApp.Base.Domain.Model;
+using BudgetApp.Base.Domain.Models;
 using BudgetApp.Base.Persistence;
 using BudgetApp.Persistence.Interfaces;
 

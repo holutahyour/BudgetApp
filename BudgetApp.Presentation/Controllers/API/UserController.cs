@@ -1,4 +1,4 @@
-using BudgetApp.Base.Domain.Model;
+using BudgetApp.Base.Domain.Models;
 using BudgetApp.Services.Users.Commands;
 using BudgetApp.Services.Users.Queries;
 using MediatR;

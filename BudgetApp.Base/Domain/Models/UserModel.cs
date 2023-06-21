@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BudgetApp.Base.Domain.Model
+namespace BudgetApp.Base.Domain.Models
 {
     public class UserModel
     {

@@ -1,7 +1,6 @@
 ﻿using AutoMapper;
 using MediatR;
 using BudgetApp.Base.Domain.DTO;
-using BudgetApp.Base.Domain.Entities;
 using BudgetApp.Persistence.Interfaces;
 
 namespace BudgetApp.Services.Users.Queries
