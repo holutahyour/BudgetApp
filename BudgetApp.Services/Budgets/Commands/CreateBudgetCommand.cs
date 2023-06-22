@@ -9,7 +9,7 @@ namespace BudgetApp.Services.Budgets.Commands
 {
     public class CreateBudgetCommand : IRequest<Budget>
     {
-        public Budget Budget { get; set; }
+        public BudgetModel Budget { get; set; }
     }
 
     public class CreateBudgetCommandHandler : IRequestHandler<CreateBudgetCommand, Budget>

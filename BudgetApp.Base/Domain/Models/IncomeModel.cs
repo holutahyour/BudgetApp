@@ -13,8 +13,11 @@ namespace BudgetApp.Base.Domain.Models
         public string Description { get; set; }
 
         [Required]
-        public double Amonut { get; set; }
+        public double Amount { get; set; }
         
         public DateTime Date { get; set; }
+
+        [Required]
+        public int BudgetId { get; set; }
     }
 }

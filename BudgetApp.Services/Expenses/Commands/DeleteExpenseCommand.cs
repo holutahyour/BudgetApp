@@ -28,7 +28,7 @@ namespace BudgetApp.Services.Expenses.Commands
             var expense = await _expenseRepository.GetExpenseById(request.Id);
 
             if (expense == null)
-                throw new Exception($"invaild expense with id {expense.Id}");
+                throw new Exception($"invaild expense with id {request.Id}");
 
             var result = await _expenseRepository.Delete(expense);
 

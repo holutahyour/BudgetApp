@@ -25,6 +25,9 @@ namespace BudgetApp.Services.Expenses.Queries
         {
             var expense = await _expenseRepository.GetExpenseById(request.Id);
 
+            if (expense == null)
+                throw new Exception($"invaild expense with id {request.Id}");
+
             return expense;
         }
     }
