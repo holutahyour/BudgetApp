@@ -16,6 +16,17 @@ builder.Services.AddDbContext<BaseDbContext>(options =>
             );
     });
 
+builder.Services.AddCors(options =>
+{
+    options.AddDefaultPolicy(policy =>
+    {
+        policy
+        .AllowAnyHeader()
+        .AllowAnyMethod()
+        .AllowAnyOrigin();
+    });
+});
+
 builder.Services.AddIdentity<User, UserRole>(options =>
     {
         options.Password.RequireDigit = false;
@@ -41,6 +52,8 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
+
+app.UseCors();
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
