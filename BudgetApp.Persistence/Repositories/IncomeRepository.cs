@@ -1,6 +1,7 @@
 ﻿using BudgetApp.Base.Domain.Entities;
 using BudgetApp.Base.Persistence;
 using BudgetApp.Persistence.Interfaces;
+using Microsoft.EntityFrameworkCore;
 
 namespace BudgetApp.Persistence.Repositories
 {
@@ -20,6 +21,12 @@ namespace BudgetApp.Persistence.Repositories
             return income;
         }
 
+        public async Task<Income[]> AddIncomesAsync(Income[] incomes)
+        {
+            await _context.Incomes.AddRangeAsync(incomes);
+
+            return incomes;
+        }
         public Task<Income> Update(Income income)
         {
             _context.Incomes.Update(income);
@@ -47,16 +54,25 @@ namespace BudgetApp.Persistence.Repositories
         {
             var income = _context.Incomes
                 .Where(x => x.Id == id)
-                .FirstOrDefault();
+                .FirstOrDefaultAsync();
 
-            return Task.FromResult(income);
+            return income;
+        }
+
+        public Task<Income> GetIncomeByBudgetId(int budgetId)
+        {
+            var income = _context.Incomes
+                .Where(x => x.BudgetId == budgetId)
+                .FirstOrDefaultAsync();
+
+            return income;
         }
 
         public Task<Income[]> GetAllIncomes()
         {
-            var incomes = _context.Incomes.ToArray();
+            var incomes = _context.Incomes.ToArrayAsync();
 
-            return Task.FromResult(incomes);
+            return incomes;
         }
     }
 }

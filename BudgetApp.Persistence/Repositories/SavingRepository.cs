@@ -1,6 +1,7 @@
 ﻿using BudgetApp.Base.Domain.Entities;
 using BudgetApp.Base.Persistence;
 using BudgetApp.Persistence.Interfaces;
+using Microsoft.EntityFrameworkCore;
 
 namespace BudgetApp.Persistence.Repositories
 {
@@ -18,6 +19,13 @@ namespace BudgetApp.Persistence.Repositories
             await _context.Savings.AddAsync(saving);
 
             return saving;
+        }
+
+        public async Task<Saving[]> AddSavingsAsync(Saving[] savings)
+        {
+            await _context.Savings.AddRangeAsync(savings);
+
+            return savings;
         }
 
         public Task<Saving> Update(Saving saving)
@@ -47,16 +55,25 @@ namespace BudgetApp.Persistence.Repositories
         {
             var saving = _context.Savings
                 .Where(x => x.Id == id)
-                .FirstOrDefault();
+                .FirstOrDefaultAsync();
 
-            return Task.FromResult(saving);
+            return saving;
+        }
+
+        public Task<Saving> GetSavingByBudgetId(int budgetId)
+        {
+            var saving = _context.Savings
+                .Where(x => x.BudgetId == budgetId)
+                .FirstOrDefaultAsync();
+
+            return saving;
         }
 
         public Task<Saving[]> GetAllSavings()
         {
-            var savings = _context.Savings.ToArray();
+            var savings = _context.Savings.ToArrayAsync();
 
-            return Task.FromResult(savings);
+            return savings;
         }
     }
 }

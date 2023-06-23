@@ -6,5 +6,8 @@
         public string Description { get; set; }
         public double Amount { get; set; }
         public DateTime Date { get; set; }
+        public IncomeData[] Incomes { get; set; }
+        public ExpenseData[] Expenses { get; set; }
+        public SavingData[] Savings { get; set; }
     }
 }

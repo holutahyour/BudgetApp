@@ -16,5 +16,14 @@ namespace BudgetApp.Base.Domain.Models
         public double Amount { get; set; }
         
         public DateTime Date { get; set; }
+
+        [Required]
+        public IncomeModel[] Incomes { get; set; }
+
+        [Required]
+        public ExpenseModel[] Expenses { get; set; }
+
+        [Required]
+        public SavingModel[] Savings { get; set; }
     }
 }
