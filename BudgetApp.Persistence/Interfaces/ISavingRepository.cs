@@ -8,7 +8,7 @@ namespace BudgetApp.Persistence.Interfaces
         Task<Saving[]> AddSavingsAsync(Saving[] savings);
         Task<bool> Delete(Saving saving);
         Task<Saving[]> GetAllSavings();
-        Task<Saving> GetSavingByBudgetId(int budgetId);
+        Task<Saving[]> GetSavingByBudgetId(int budgetId);
         Task<Saving> GetSavingById(int id);
         Task<Saving> Update(Saving saving);
     }

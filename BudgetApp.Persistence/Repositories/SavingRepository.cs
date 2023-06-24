@@ -60,13 +60,13 @@ namespace BudgetApp.Persistence.Repositories
             return saving;
         }
 
-        public Task<Saving> GetSavingByBudgetId(int budgetId)
+        public Task<Saving[]> GetSavingByBudgetId(int budgetId)
         {
-            var saving = _context.Savings
+            var savings = _context.Savings
                 .Where(x => x.BudgetId == budgetId)
-                .FirstOrDefaultAsync();
+                .ToArrayAsync();
 
-            return saving;
+            return savings;
         }
 
         public Task<Saving[]> GetAllSavings()

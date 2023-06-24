@@ -60,11 +60,11 @@ namespace BudgetApp.Persistence.Repositories
             return expense;
         }
 
-        public Task<Expense> GetExpenseByBudgetId(int budgetId)
+        public Task<Expense[]> GetExpenseByBudgetId(int budgetId)
         {
             var expense = _context.Expenses
                 .Where(x => x.BudgetId == budgetId)
-                .FirstOrDefaultAsync();
+                .ToArrayAsync();
 
             return expense;
         }

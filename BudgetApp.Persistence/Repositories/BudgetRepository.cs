@@ -1,6 +1,7 @@
 ﻿using BudgetApp.Base.Domain.Entities;
 using BudgetApp.Base.Persistence;
 using BudgetApp.Persistence.Interfaces;
+using Microsoft.EntityFrameworkCore;
 
 namespace BudgetApp.Persistence.Repositories
 {
@@ -55,6 +56,8 @@ namespace BudgetApp.Persistence.Repositories
         public Task<Budget[]> GetAllBudgets()
         {
             var budgets = _context.Budgets.ToArray();
+
+
 
             return Task.FromResult(budgets);
         }

@@ -8,7 +8,7 @@ namespace BudgetApp.Persistence.Interfaces
         Task<Income[]> AddIncomesAsync(Income[] incomes);
         Task<bool> Delete(Income income);
         Task<Income[]> GetAllIncomes();
-        Task<Income> GetIncomeByBudgetId(int budgetId);
+        Task<Income[]> GetIncomeByBudgetId(int budgetId);
         Task<Income> GetIncomeById(int id);
         Task<Income> Update(Income income);
     }

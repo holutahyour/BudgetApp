@@ -59,13 +59,13 @@ namespace BudgetApp.Persistence.Repositories
             return income;
         }
 
-        public Task<Income> GetIncomeByBudgetId(int budgetId)
+        public Task<Income[]> GetIncomeByBudgetId(int budgetId)
         {
-            var income = _context.Incomes
+            var incomes = _context.Incomes
                 .Where(x => x.BudgetId == budgetId)
-                .FirstOrDefaultAsync();
+                .ToArrayAsync();
 
-            return income;
+            return incomes;
         }
 
         public Task<Income[]> GetAllIncomes()
