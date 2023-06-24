@@ -46,6 +46,19 @@ namespace BudgetApp.Presentation.Controllers
             }
         }
 
+        [HttpGet("total_budget")]
+        public async Task<IActionResult> Get_Total_Budget()
+        {
+            try
+            {
+                return Ok(await _mediator.Send(new GetTotalBudgetQuery()));
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+
         [HttpPost]
         public async Task<IActionResult> Post(BudgetModel budget)
         {
