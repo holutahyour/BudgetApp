@@ -23,7 +23,8 @@ namespace BudgetApp.Persistence.Repositories
 
         public async Task<Expense[]> AddExpensesAsync(Expense[] expenses)
         {
-            await _context.Expenses.AddRangeAsync(expenses);
+            await _context.Expenses
+                .AddRangeAsync(expenses);
 
             return expenses;
         }
@@ -71,7 +72,9 @@ namespace BudgetApp.Persistence.Repositories
 
         public Task<Expense[]> GetAllExpenses()
         {
-            var expenses = _context.Expenses.ToArrayAsync();
+            var expenses = _context.Expenses
+                .Include(x => x.Budget)
+                .ToArrayAsync();
 
             return expenses;
         }

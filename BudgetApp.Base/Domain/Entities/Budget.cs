@@ -16,9 +16,5 @@ namespace BudgetApp.Base.Domain.Entities
         public double Amount { get; set; }
 
         public DateTime Date { get; set; }
-
-        public virtual List<Expense> Expenses { get; set; }
-        public virtual List<Income> Incomes { get; set; }
-        public virtual List<Saving> Savings { get; set; }
     }
 }

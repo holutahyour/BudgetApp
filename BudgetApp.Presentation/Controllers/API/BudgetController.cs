@@ -21,11 +21,11 @@ namespace BudgetApp.Presentation.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> Get()
+        public async Task<IActionResult> Get(bool getCompleteData = true, int take = 0)
         {
             try
             {
-                return Ok(await _mediator.Send(new GetBudgetListQuery()));
+                return Ok(await _mediator.Send(new GetBudgetListQuery { GetCompleteData = getCompleteData, Take = take}));
             }
             catch (Exception ex)
             {

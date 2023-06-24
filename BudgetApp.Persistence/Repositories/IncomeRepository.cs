@@ -70,7 +70,9 @@ namespace BudgetApp.Persistence.Repositories
 
         public Task<Income[]> GetAllIncomes()
         {
-            var incomes = _context.Incomes.ToArrayAsync();
+            var incomes = _context.Incomes
+                .Include(x => x.Budget)
+                .ToArrayAsync();
 
             return incomes;
         }

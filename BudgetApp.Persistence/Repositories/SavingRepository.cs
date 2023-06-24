@@ -71,7 +71,9 @@ namespace BudgetApp.Persistence.Repositories
 
         public Task<Saving[]> GetAllSavings()
         {
-            var savings = _context.Savings.ToArrayAsync();
+            var savings = _context.Savings
+                .Include(x => x.Budget)
+                .ToArrayAsync();
 
             return savings;
         }

@@ -3,6 +3,7 @@ using MediatR;
 using BudgetApp.Base.Domain.Entities;
 using BudgetApp.Persistence.Interfaces;
 using BudgetApp.Persistence.Repositories;
+using BudgetApp.Persistence._Extentions;
 
 namespace BudgetApp.Services.Budgets.Queries
 {
@@ -37,45 +38,11 @@ namespace BudgetApp.Services.Budgets.Queries
 
             return new
             {
-                Expenses = TotalExpenses(expenses),
-                Incomes = TotalIncomes(incomes),
-                savings = TotalSavings(savings)
+                Expenses = Utils.TotalExpenses(expenses),
+                Incomes = Utils.TotalIncomes(incomes),
+                savings = Utils.TotalSavings(savings)
             };
         }
-
-        public double TotalExpenses(Expense[] expenses)
-        {
-            double total = 0;
-
-            foreach (var expense in expenses)
-            {
-                total += expense.Amount;
-            }
-
-            return total;
-        }
-        public double TotalIncomes(Income[] incomes)
-        {
-            double total = 0;
-
-            foreach (var income in incomes)
-            {
-                total += income.Amount;
-            }
-
-            return total;
-        }
-
-        public double TotalSavings(Saving[] savings)
-        {
-            double total = 0;
-
-            foreach (var saving in savings)
-            {
-                total += saving.Amount;
-            }
-
-            return total;
-        }
+       
     }
 }

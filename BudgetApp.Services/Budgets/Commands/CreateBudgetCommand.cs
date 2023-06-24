@@ -44,28 +44,6 @@ namespace BudgetApp.Services.Budgets.Commands
 
             _context.SaveChangesAsync(cancellationToken).Wait(cancellationToken);
 
-            foreach (var expense in expenses)
-            {
-                expense.BudgetId = budget.Id;
-            }
-
-            foreach (var income in incomes)
-            {
-                income.BudgetId = budget.Id;
-            }
-
-            foreach (var saving in savings)
-            {
-                saving.BudgetId = budget.Id;
-            }
-
-            expenses = await _expenseRepository.AddExpensesAsync(expenses);
-            incomes = await _incomeRepository.AddIncomesAsync(incomes);
-            savings = await _savingRepository.AddSavingsAsync(savings);
-
-
-            _context.SaveChangesAsync(cancellationToken).Wait(cancellationToken);
-
             var budgetData = _mapper.Map<BudgetData>(budget);
 
             budgetData.Expenses = _mapper.Map<ExpenseData[]>(expenses);
